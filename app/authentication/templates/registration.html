@@ -1,0 +1,10 @@
+{%extends 'layout.html'%}
+{%block content%}
+<h4 align="center" class="form"></h4>
+<div class="container form">
+    <hr>
+    <br>
+    {{form.hidden_tag()}}
+    {{wtf.quick_form(form)}}
+</div>
+{%endblock%}
