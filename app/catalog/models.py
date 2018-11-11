@@ -25,7 +25,7 @@ class Book(db.Model):
     format = db.Column(db.String(50))
     image = db.Column(db.String(100), unique=True)
     num_pages = db.Column(db.Integer)
-    pub_date = db.Column(db.DateTime, default=datetime.utcnow())
+
 
     # Relationship
     pub_id = db.Column(db.Integer, db.ForeignKey('publication.id'))
