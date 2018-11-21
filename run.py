@@ -13,5 +13,5 @@ with flask_app.app_context():
             User.create_user(user = 'harry',
                             email='harry_hogwarts@rowling.com',
                             password = 'secret')
-    except exc.IntegrityError:
+    except:
         flask_app.run()
