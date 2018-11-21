@@ -8,10 +8,10 @@ flask_app = create_app('prod')
 
 with flask_app.app_context():
     db.create_all()
-    try:
-        if not User.query.filter_by(user_name = 'harry').first():
+
+    if not User.query.filter_by(user_name = 'harry').first():
             User.create_user(user = 'harry',
                             email='harry_hogwarts@rowling.com',
                             password = 'secret')
-    except:
-        flask_app.run()
+if '__main__' == __name__:
+    flask_app.run()
