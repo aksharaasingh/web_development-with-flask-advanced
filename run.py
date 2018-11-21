@@ -8,10 +8,11 @@ flask_app = create_app('prod')
 
 with flask_app.app_context():
     db.create_all()
-
-    if not User.query.filter_by(user_name = 'harry').first():
-            User.create_user(user = 'harry',
-                            email='harry_hogwarts@rowling.com',
-                            password = 'secret')
-if '__main__' == __name__:
-    flask_app.run()
+    try:
+        if not User.query.filter_by(user_name = 'harry').first():
+                User.create_user(user = 'harry',
+                                email='harry_hogwarts@rowling.com',
+                                password = 'secret')
+    except exc.IntegrityError:
+        if '__main__' == __name__:
+            flask_app.run()
