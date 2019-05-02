@@ -32,4 +32,5 @@ def create_app(config_type):
     from app.authentication import authentication
     app.register_blueprint(authentication)
 
+
     return app

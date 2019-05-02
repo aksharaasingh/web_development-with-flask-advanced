@@ -42,3 +42,24 @@ class Book(db.Model):
     def __repr__(self):
         return '{} by {}'.format(self.title, self.author)
 
+class Data(db.Model):
+    __tablename__ = 'data_collected'
+
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(80))
+    state = db.Column(db.String(30))
+    district = db.Column(db.String(40))
+    crop = db.Column(db.String(50))
+    season = db.Column(db.String(13))
+    sowing_month = db.Column(db.String(10))
+    harvesting_month = db.Column(db.String(10))
+
+    def __init__(self,name,state,district,crop,season,sowing_month,harvesting_month):
+        self.name = name
+        self.state = state
+        self.district = district
+        self.crop = crop
+        self.season = season
+        self.sowing_month = sowing_month
+        self.harvesting_month = harvesting_month
+

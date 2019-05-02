@@ -1,18 +1,18 @@
 from app import create_app
 from app import db
 from app.authentication.models import User
-from sqlalchemy import exc
 
 
 flask_app = create_app('prod')
 
 with flask_app.app_context():
     db.create_all()
-    try:
-        if not User.query.filter_by(user_name = 'harry').first():
-                User.create_user(user = 'harry',
-                                email='harry_hogwarts@rowling.com',
+
+    if not User.query.filter_by(user_name = 'sherlock holmes').first():
+                User.create_user(user = 'sherlock holmes',
+                                email='sherlock_holmes@gmail.com',
                                 password = 'secret')
-    except exc.IntegrityError:
-        if '__main__' == __name__:
-            flask_app.run()
+
+
+
+    flask_app.run()
